@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Respire — Arrête de fumer</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Respire — ton compagnon pour arrêter de fumer.">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Respire</h1>
+      <p class="subtitle">Arrête de fumer. Respire la liberté.</p>
+    </header>
+
+    <main id="app">
+      <section id="onboarding" class="card">
+        <h2>Commencer</h2>
+        <label>Ton nom<input id="name" placeholder="Ton prénom"></label>
+        <label>Date d'arrêt<input id="quitDate" type="date"></label>
+        <label>Nombre de cigarettes / jour<input id="cigsPerDay" type="number" min="0" value="10"></label>
+        <label>Prix d'un paquet (€)<input id="packPrice" type="number" min="0" step="0.01" value="10"></label>
+        <div class="actions">
+          <button id="startBtn">Commencer</button>
+          <button id="demoBtn" class="secondary">Demo rapide</button>
+        </div>
+      </section>
+
+      <section id="dashboard" class="card hidden">
+        <div class="row">
+          <div>
+            <h3 id="greeting">Bonjour</h3>
+            <p id="status">0 jours sans fumer</p>
+          </div>
+          <div class="small">
+            <p class="large" id="days">0</p>
+            <p>jours</p>
+          </div>
+        </div>
+
+        <div class="stats row">
+          <div class="stat">
+            <p class="label">Argent économisé</p>
+            <p class="value" id="money">0 €</p>
+          </div>
+          <div class="stat">
+            <p class="label">Cigarettes évitées</p>
+            <p class="value" id="cigsAvoided">0</p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <label>Si tu as fumé aujourd'hui, indique combien :
+            <input id="smokedToday" type="number" min="0" value="0">
+          </label>
+          <div class="actions">
+            <button id="logSmoke">Enregistrer</button>
+            <button id="crisisBtn" class="danger">Mode crise</button>
+          </div>
+        </div>
+
+        <div id="history" class="history">
+          <h4>Journal</h4>
+          <ul id="logList"></ul>
+        </div>
+
+        <div class="footer-actions">
+          <button id="resetBtn" class="secondary">Réinitialiser données</button>
+          <button id="shareBtn">Partager progrès</button>
+        </div>
+      </section>
+
+      <section id="crisis" class="card modal hidden">
+        <h3>Mode crise</h3>
+        <p id="crisisQuote">Respire. Ça va passer — 1 minute à la fois.</p>
+        <div class="breathing">
+          <div id="breathCircle"></div>
+          <p id="breathText">Inspire...</p>
+        </div>
+        <div class="actions">
+          <button id="stopCrisis">Retour</button>
+        </div>
+      </section>
+
+      <section id="tips" class="card">
+        <h4>Conseils rapides</h4>
+        <ul>
+          <li>Remplace la cigarette par un verre d'eau.</li>
+          <li>Fais 3 respirations profondes.</li>
+          <li>Appelle un ami ou utilise le mode crise.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <small>Respire — application prototype. Texte en français.</small>
+    </footer>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
